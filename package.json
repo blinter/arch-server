@@ -1,0 +1,31 @@
+{
+  "name": "arch-server",
+  "version": "1.0.0",
+  "description": "Base for my personal projects.",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blinter/arch-server.git"
+  },
+  "author": "Symon Lopes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blinter/arch-server/issues"
+  },
+  "homepage": "https://github.com/blinter/arch-server#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.28",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  }
+}
