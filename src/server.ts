@@ -1,11 +1,17 @@
-import express, { Request, Application, Response } from 'express'
+import bodyParser from 'body-parser';
+import express, { Application } from 'express';
+import RotasCadastro from './rotas/RotasCadastro';
+import RotasExemplo from "./rotas/RotasExemplo";
 
 const app: Application = express()
 
-const PORT = 4500;
-app.get('/', (req: Request, res: Response) => {
-    res.status(200).send('hi, mother fucker.........')
-});
-app.listen(PORT, () => {
-    console.log(`⚡️[server]: Servidor em execução https://localhost:${PORT}`);
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(new RotasExemplo().router())
+app.use(new RotasCadastro().router())
+
+
+app.listen(4500, () => {
+    console.log(`⚡Servidor iniciado.`);
 });
