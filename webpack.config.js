@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: "./src/client/Index.js",
@@ -22,7 +23,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "public/js/"),
     publicPath: "/js/",
-    filename: "bundle.js"
+    filename: "js/bundle.js"
   },
   devServer: {
     // writeToDisk: true,
@@ -31,5 +32,12 @@ module.exports = {
     publicPath: "http://localhost:4000/",
     hotOnly: true
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    // new HtmlWebpackPlugin({
+    //   hash: true,
+    //   template: "./public/old.index.html",
+    //   filename: "index.html"
+    // })
+  ]
 };
