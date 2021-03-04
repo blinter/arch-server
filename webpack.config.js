@@ -3,15 +3,20 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: "./src/client/Index.js",
+  entry: "./src/client/Index.tsx",
   mode: "development",
   module: {
     rules: [
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /(node_modules|bower_components)/,
+      //   loader: "babel-loader",
+      //   options: { presets: ["@babel/env"] }
+      // },
       {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+        test: /\.(tsx|jsx)$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -19,7 +24,7 @@ module.exports = {
       }
     ]
   },
-  resolve: { extensions: ["*", ".js", ".jsx"] },
+  resolve: { extensions: [".js", ".ts", ".tsx", ".jsx"] },
   output: {
     path: path.resolve(__dirname, "public/js/"),
     publicPath: "/js/",
