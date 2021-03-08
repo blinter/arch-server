@@ -2,7 +2,7 @@
   "name": "arch-server",
   "version": "1.0.0",
   "description": "Base for my personal projects.",
-  "main": "src/server.ts",
+  "main": "src/server/server.ts",
   "scripts": {
     "dev": "nodemon"
   },
@@ -17,14 +17,17 @@
   },
   "homepage": "https://github.com/blinter/arch-server#readme",
   "dependencies": {
+    "@types/cors": "^2.8.10",
     "@types/express-validator": "^3.0.0",
     "body-parser": "^1.19.0",
     "consign": "^0.1.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
+    "knex": "^0.95.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.0",
