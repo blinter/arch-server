@@ -3,8 +3,9 @@ import cors from 'cors'
 import knex from 'knex'
 import express, { Application } from 'express';
 import RotasCadastro from './rotas/RotasCadastro';
-import RotasDocument from './rotas/RotasDocument';
+import RotasDocument from './rotas/RotasDocumento';
 import RotasExemplo from "./rotas/RotasExemplo";
+import RotasURL from './rotas/RotasURL';
 
 
 const app: Application = express()
@@ -16,20 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(new RotasDocument().router())
 app.use(new RotasExemplo().router())
 app.use(new RotasCadastro().router())
-
-let db = knex({
-    client: 'sqlite3',
-    connection: {
-        debug: true,
-        filename: "./db/db.sqlite"
-    },
-    migrations: {
-        tableName: 'knex_migrations',
-        directory: `./src/server/migrations`
-    }
-})
-
-db.migrate.latest();
+app.use(new RotasURL().router())
 
 app.listen(4500, () => {
     console.log(`⚡Servidor iniciado.`);

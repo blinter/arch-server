@@ -5,6 +5,7 @@
       "outDir": "./build",
       "esModuleInterop": true,
       "strict": true,
+      "sourceMap": true,
       "jsx": "react"
   },
   "include": [

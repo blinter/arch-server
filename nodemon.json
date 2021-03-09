@@ -4,7 +4,8 @@
         ".git",
         "node_modules/",
         "dist/",
-        "coverage/"
+        "coverage/",
+        "migrations/"
     ],
     "watch": [
         "src/"

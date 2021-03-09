@@ -4,7 +4,9 @@
   "description": "Base for my personal projects.",
   "main": "src/server/server.ts",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "server:start": "nodemon --inspect=9229 -e ts,tsx --exec node -r ts-node/register ./src/server/server.ts"
+
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
     "knex": "^0.95.1",
+    "pg": "^8.5.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sqlite3": "^5.0.2"
