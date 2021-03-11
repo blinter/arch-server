@@ -2,10 +2,8 @@
   "name": "arch-server",
   "version": "1.0.0",
   "description": "Base for my personal projects.",
-  "main": "src/server/server.ts",
   "scripts": {
-    "dev": "nodemon",
-    "server:start": "nodemon --inspect=9229 -e ts,tsx --exec node -r ts-node/register ./src/server/server.ts"
+    "start": "npx webpack serve"
   },
   "repository": {
     "type": "git",
@@ -18,34 +16,26 @@
   },
   "homepage": "https://github.com/blinter/arch-server#readme",
   "dependencies": {
-    "@types/cors": "^2.8.10",
-    "@types/express-validator": "^3.0.0",
-    "@types/iconv": "^2.1.16",
-    "body-parser": "^1.19.0",
-    "consign": "^0.1.6",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-validator": "^6.10.0",
-    "iconv": "^3.0.0",
-    "knex": "^0.95.1",
-    "pg": "^8.5.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "sqlite3": "^5.0.2"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.8",
     "@babel/preset-react": "^7.12.13",
+    "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
+    "@types/express-validator": "^3.0.0",
+    "@types/iconv": "^2.1.16",
+    "@types/mongodb": "^3.6.9",
     "@types/node": "^14.14.28",
+    "@types/pino": "^6.3.6",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.1.1",
     "html-webpack-plugin": "^5.2.0",
-    "nodemon": "^2.0.7",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.17",
     "ts-node": "^9.1.1",
