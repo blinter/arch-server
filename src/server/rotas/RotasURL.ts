@@ -18,7 +18,7 @@ export default class RotasURL {
     }
 
     async processarLinks(req: Request, res: Response) {
-        console.log("Processando links...")
+        console.log(`${new Date().toLocaleTimeString()} - Processando links... `)
         res.status(200).send('ok')
         new LinkBusiness().processasrLinks()
     }

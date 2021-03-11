@@ -13,7 +13,7 @@ export default class LinkBusiness {
     gerarLinks() {
 
         let links = []
-        for (let i = 200001; i <= 250000; i++) {
+        for (let i = 200001; i <= 300000; i++) {
             links.push(new Link(new NumeroUnicoProcesso(i, '2017', '0000', '405').url))
         }
 
@@ -24,21 +24,26 @@ export default class LinkBusiness {
         let links = await persistencia.listarNaoProcessados()
 
         for (let link of links) {
-            https.get(link.url, (res: IncomingMessage) => {
-                res.setEncoding('utf8');
-                link.statusProcessamento = res.statusCode;
-                let rawData = '';
-                res.on('data', (chunk) => { rawData += chunk; });
-                res.on('end', () => {
-                    try {
-                        link.documento = rawData;
-                        link.dataProcessamento = new Date();
-                        persistencia.atualizar(link)
-                    } catch (e) {
-                        console.error(e.message);
-                    }
-                });
-            })
+            try {
+                https.get(link.url, (res: IncomingMessage) => {
+                    res.setEncoding("utf-8");
+                    link.statusProcessamento = res.statusCode;
+                    let rawData = '';
+                    res.on('data', (chunk) => { rawData += chunk; });
+                    res.on('end', () => {
+                        try {
+                            link.documento = rawData;
+                            link.dataProcessamento = new Date();
+                            persistencia.atualizar(link)
+                        } catch (e) {
+                            console.error(e.message);
+                        }
+                    });
+                })
+            } catch (error) {
+                console.log("Erro na request ->", error)
+            }
+
         }
     }
 

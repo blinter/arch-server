@@ -14,7 +14,7 @@ export default class PersistenciaLink {
 
         let rows = await InstanciaKNEX.from('url')
             .where('status_processamento', '0')
-            .andWhere('id', '<', 999999999).andWhere('id', '>', 180000)
+            .andWhereBetween('id', [1, 300000])
             .orderBy('id', 'asc')
             .limit(100)
 
